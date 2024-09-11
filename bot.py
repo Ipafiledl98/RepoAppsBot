@@ -1,14 +1,12 @@
+import os
 import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import json
-import requests
 
-# توکن ربات تلگرام و آی‌دی کانال
-BOT_TOKEN = '7320558549:AAHI8LMHI03_Mo6LfaoEp7qetM9PoZRqAAo'  # توکن ربات خود را اینجا وارد کنید
-CHANNEL_ID = '@Repo_test'  # آی‌دی کانال خود را اینجا وارد کنید
-
-# آی‌دی کاربر مجاز (آی‌دی تلگرام خود را به جای YOUR_USER_ID وارد کنید)
-AUTHORIZED_USER_ID = 216273191  # آی‌دی تلگرام خود را اینجا وارد کنید
+# دریافت متغیرهای محیطی
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+CHANNEL_ID = os.getenv('CHANNEL_ID')
+AUTHORIZED_USER_ID = int(os.getenv('AUTHORIZED_USER_ID'))
 
 def start(update, context):
     # بررسی اینکه آیا کاربر مجاز است یا نه
